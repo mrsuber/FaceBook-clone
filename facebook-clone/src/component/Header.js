@@ -1,5 +1,6 @@
 import '../styles/Header.css'
 import logo from "../images/facebook_logo.png"
+import pic from '../images/users/me.webp'
 import SearchIcon from '@material-ui/icons/Search';
 import HomeIcon from '@material-ui/icons/Home'
 import FlagIcon from '@material-ui/icons/Flag'
@@ -52,7 +53,7 @@ function Header(){
         </div>
         <div className="header__right">
             <div className="header__info">
-                <Avatar />
+                <Avatar src={pic}/>
                 <h4>Mohamad</h4>
             </div>
 
