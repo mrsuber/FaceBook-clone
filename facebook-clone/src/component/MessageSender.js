@@ -6,6 +6,8 @@ import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary"
 import InserEmoticonIcon from "@material-ui/icons/InsertEmoticon"
 import {useState} from "react"
 import {useStateValue} from "../Stateprovider"
+import db from '../config/firebase'
+import firebase from "firebase"
 
 function MessageSender(){
   const [{user},dispatch]=useStateValue();
@@ -14,6 +16,13 @@ function MessageSender(){
   const handleSubmit = (e)=>{
     e.preventDefault();
     //some cleaver database logi hear
+    db.collection('posts').add({
+      message:input,
+      timestamp:firebase.firestore.FieldValue.serverTimestamp(),
+      profilePic:user.photoURL,
+      username:user.displayName,
+      image:imageUrl
+    })
 
     setImageUrl("")
     setInput("")
