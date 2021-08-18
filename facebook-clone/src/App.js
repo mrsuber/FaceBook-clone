@@ -5,10 +5,13 @@ import Sidebar from './component/Sidebar'
 import Feed from "./component/Feed"
 import Widgets from './component/Widgets'
 import Login from './component/Login'
+import {useStateValue} from "./Stateprovider"
 
 
 function App() {
-  const user = null;
+  const [{user},dispatch] = useStateValue();
+
+
   return (
     //BEM nameing convention
     <div className="app">
